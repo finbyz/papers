@@ -260,9 +260,9 @@ doc_events = {
 #e invoice override
 import erpnext
 
-from papers.e_invoice_override import update_invoice_taxes,get_invoice_value_details
-erpnext.regional.india.e_invoice.utils.update_invoice_taxes = update_invoice_taxes
-erpnext.regional.india.e_invoice.utils.get_invoice_value_details = get_invoice_value_details
+# from papers.e_invoice_override import update_invoice_taxes,get_invoice_value_details
+# erpnext.regional.india.e_invoice.utils.update_invoice_taxes = update_invoice_taxes
+# erpnext.regional.india.e_invoice.utils.get_invoice_value_details = get_invoice_value_details
 
 #Item variant
 from papers.item_variant_overrides import make_variant_item_code_with_variant_name,copy_attributes_to_variant as copy_attributes,update_variants,update_variants_enqueue, validate_is_incremental as validate_is_incremental_papers
