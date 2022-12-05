@@ -33,7 +33,7 @@ def make_variant_item_code_with_variant_name(template_item_code, template_item_n
 			# 	frappe.bold(attr.attribute_value)), title=_('Invalid Attribute'),
 			# 	exc=InvalidItemAttributeValueError)
 
-		abbr_or_value = cstr(attr.attribute_value) if (item_attribute[0].numeric_values and attr.attribute_value > 0) else item_attribute[0].abbr
+		abbr_or_value = cstr(attr.attribute_value) if (item_attribute[0].numeric_values and (attr.attribute_value or 0) > 0) else item_attribute[0].abbr
 		attribute_name = cstr(attr.attribute_value)
 		attribute_suffix = cstr(item_attribute[0].attribute_suffix) or ''
 		abbreviations.append({'abbr_or_value':abbr_or_value,'attribute_name':attribute_name, 'attribute_suffix': attribute_suffix})
