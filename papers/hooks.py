@@ -245,14 +245,14 @@ doc_events = {
 	},
 	"Stock Entry": {
 		"validate": [
-			"surgical.batch_valuation.stock_entry_validate",
+			"papers.batch_valuation.stock_entry_validate",
 		],
-		"before_save": "surgical.api.stock_entry_before_save",
+# 		"before_save": "surgical.api.stock_entry_before_save",
 		"on_submit": [
-			"surgical.batch_valuation.stock_entry_on_submit",
+			"papers.batch_valuation.stock_entry_on_submit",
 		],
 		"on_cancel": [
-			"surgical.batch_valuation.stock_entry_on_cancel",
+			"papers.batch_valuation.stock_entry_on_cancel",
 		],
 	},
 }
