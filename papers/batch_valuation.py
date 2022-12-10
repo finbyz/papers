@@ -61,8 +61,6 @@ def make_transfer_batchs(self):
 			batch = frappe.new_doc("Batch")
 			batch.item = row.item_code
 			batch.lot_no = cstr(row.lot_no)
-			batch.packaging_material = cstr(row.packaging_material)
-			batch.packing_size = cstr(row.packing_size)
 			batch.valuation_rate = flt(row.valuation_rate, 4)
 			batch.posting_date = datetime.datetime.strptime(self.posting_date, "%Y-%m-%d").strftime("%y%m%d")
 			batch.actual_quantity = flt(row.qty * row.conversion_factor)
