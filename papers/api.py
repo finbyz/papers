@@ -47,4 +47,3 @@ def insert_item_details(doc_details, item_details):
 		doc.save()
 
 	return doc.as_dict()
-
