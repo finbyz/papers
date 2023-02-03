@@ -28,4 +28,3 @@ def validation(self,method):
             'uom':'Kgs',
             'conversion_factor':cf,
         })
-    frappe.msgprint(str(flag))
