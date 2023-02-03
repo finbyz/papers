@@ -255,6 +255,9 @@ doc_events = {
 			"papers.batch_valuation.stock_entry_on_cancel",
 		],
 	},
+	"Item":{
+		"validate":"papers.items.validation",
+	}
 }
 
 #e invoice override
