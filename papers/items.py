@@ -21,10 +21,10 @@ def validation(self,method):
     # frappe.msgprint(str(cf))
     for row in self.uoms:
         if(row.uom=='Kgs'):
-            row.conversion_factor = cf
+            row.conversion_factor = 1/cf
             flag=1
     if(flag == 0):
         self.append("uoms",{
             'uom':'Kgs',
-            'conversion_factor':cf,
+            'conversion_factor':1/cf,
         })
