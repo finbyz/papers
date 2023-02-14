@@ -36,6 +36,14 @@ app_license = "MIT"
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
+doctype_js={
+    "Sales Invoice":"public/sales_invoice.js",
+     "Sales Order": "public/sales_order.js",
+	 "Purchase Order": "public/purchase_order.js",
+	 "Delivery Note": "public/Delivery_Note.js",
+	 "Purchase Receipt": "public/Purchase_Receipt.js",
+	 "Purchase Invoice": "public/purchase_invoice.js",
+    }
 # Home Pages
 # ----------
 
@@ -96,11 +104,15 @@ app_license = "MIT"
 # Hook on document methods and events
 
 # doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
+# 	# "*": {
+# 	# 	"on_update": "method",
+# 	# 	"on_cancel": "method",
+# 	# 	"on_trash": "method"
+# 	# }
+#   "Sales Invoice":
+#   {
+
+# }
 # }
 
 # Scheduled Tasks
@@ -227,12 +239,20 @@ doc_events = {
 	"Purchase Receipt": {
 		"validate": [
 			"papers.batch_valuation.pr_validate",
+			"papers.api.conversion_factor_on_save",
+			"papers.api.UOM_validation",
 		],
 		"on_cancel": "papers.batch_valuation.pr_on_cancel",
+        "before_validate":"papers.api.set_qty_on_save"
 	},
 	"Purchase Invoice": {
-		"validate": "papers.batch_valuation.pi_validate",
+		"validate": [
+			"papers.batch_valuation.pi_validate",
+			"papers.api.conversion_factor_on_save",
+			"papers.api.UOM_validation",
+			],
 		"on_cancel": "papers.batch_valuation.pi_on_cancel",
+        "before_validate":"papers.api.set_qty_on_save"
 	},
 	"Landed Cost Voucher": {
 		"validate": [
@@ -257,7 +277,35 @@ doc_events = {
 	},
 	"Item":{
 		"validate":"papers.items.validation",
-	}
+	},
+	"Sales Invoice":{
+		"validate":[
+			"papers.api.conversion_factor_on_save",
+			"papers.api.UOM_validation",
+			],
+        "before_validate":"papers.api.set_qty_on_save"
+	},
+	"Sales Order":{
+		"validate":[
+			"papers.api.conversion_factor_on_save",
+			"papers.api.UOM_validation",
+		],
+        "before_validate":"papers.api.set_qty_on_save"
+	},
+	"Purchase Order":{
+		"validate":[
+			"papers.api.conversion_factor_on_save",
+			"papers.api.UOM_validation",
+		],
+        "before_validate":"papers.api.set_qty_on_save"
+	},
+	"Delivery Note":{
+		"validate":[
+			"papers.api.conversion_factor_on_save",
+			"papers.api.UOM_validation",
+		],
+        "before_validate":"papers.api.set_qty_on_save"
+	},
 }
 
 #e invoice override
