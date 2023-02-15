@@ -69,3 +69,9 @@ def UOM_validation(self,method):
         if row.stock_uom != row.uom:
             if row.conversion_factor == 1:
                 frappe.throw(" Stock UOM and UOM are diffrent then conversion_factor should  Not be 1 ")
+
+def rate_set_on_save(self,method):
+    for row in self.items:
+        if row.uom == "Kgs":
+            rate=row.stock_qty*row.stock_uom_rate/row.qty
+            row.rate = rate

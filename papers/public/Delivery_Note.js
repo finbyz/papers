@@ -18,6 +18,14 @@ frappe.ui.form.on('Delivery Note Item', {
             frappe.model.set_value(cdt, cdn, 'qty', qty)
         }
     },
+    stock_uom_rate:function(frm,cdt,cdn){ 
+        let doc =locals[cdt][cdn];
+            if (doc.uom =="Kgs"){
+                let rate = ((doc.stock_qty*doc.stock_uom_rate)/doc.qty);
+                frappe.model.set_value(cdt, cdn, 'rate', rate)
+            }
+       
+    },
     
 });
     

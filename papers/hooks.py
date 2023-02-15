@@ -241,6 +241,7 @@ doc_events = {
 			"papers.batch_valuation.pr_validate",
 			"papers.api.conversion_factor_on_save",
 			"papers.api.UOM_validation",
+			 "papers.api.rate_set_on_save"
 		],
 		"on_cancel": "papers.batch_valuation.pr_on_cancel",
         "before_validate":"papers.api.set_qty_on_save"
@@ -250,6 +251,7 @@ doc_events = {
 			"papers.batch_valuation.pi_validate",
 			"papers.api.conversion_factor_on_save",
 			"papers.api.UOM_validation",
+             "papers.api.rate_set_on_save"
 			],
 		"on_cancel": "papers.batch_valuation.pi_on_cancel",
         "before_validate":"papers.api.set_qty_on_save"
@@ -282,6 +284,7 @@ doc_events = {
 		"validate":[
 			"papers.api.conversion_factor_on_save",
 			"papers.api.UOM_validation",
+             "papers.api.rate_set_on_save"
 			],
         "before_validate":"papers.api.set_qty_on_save"
 	},
@@ -290,19 +293,26 @@ doc_events = {
 			"papers.api.conversion_factor_on_save",
 			"papers.api.UOM_validation",
 		],
-        "before_validate":"papers.api.set_qty_on_save"
+        "before_validate":[
+			"papers.api.set_qty_on_save",
+            "papers.api.rate_set_on_save"
+		]
 	},
 	"Purchase Order":{
 		"validate":[
 			"papers.api.conversion_factor_on_save",
 			"papers.api.UOM_validation",
 		],
-        "before_validate":"papers.api.set_qty_on_save"
+        "before_validate":[
+			"papers.api.set_qty_on_save",
+			"papers.api.rate_set_on_save",
+		]
 	},
 	"Delivery Note":{
 		"validate":[
 			"papers.api.conversion_factor_on_save",
 			"papers.api.UOM_validation",
+             "papers.api.rate_set_on_save"
 		],
         "before_validate":"papers.api.set_qty_on_save"
 	},
