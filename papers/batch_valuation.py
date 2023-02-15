@@ -157,7 +157,7 @@ def delete_batches(self, warehouse):
 			row.db_set('batch_no', None)
 			batch_no.db_set('reference_doctype','')
 			batch_no.db_set('reference_name','')
-			row.batch_no = None
+			frappe.db.set_value("Stock Entry Item" , row.name , "batch_no" , None)
 			batch_docs.append(batch_no)
 			check_if_doc_is_linked(batch_no)
 			frappe.db.delete("Batch", batch_no.name)
