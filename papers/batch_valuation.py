@@ -146,7 +146,7 @@ def make_batchs(self, warehouse_field):
 def delete_batches(self, warehouse):
 	from frappe.model.delete_doc import check_if_doc_is_linked
 	
-	# batch_docs = []
+	batch_docs = []
 	for row in self.items:
 		if row.batch_no and row.get(warehouse):
 			batch_no = frappe.get_doc("Batch", row.batch_no)
@@ -157,10 +157,10 @@ def delete_batches(self, warehouse):
 			row.db_set('batch_no', None)
 			batch_no.db_set('reference_doctype','')
 			batch_no.db_set('reference_name','')
-			# row.batch_no = None
-			# batch_docs.append(batch_no)
-			# check_if_doc_is_linked(batch_no)
-			# frappe.delete_doc("Batch", batch_no.name)
+			row.batch_no = None
+			batch_docs.append(batch_no)
+			check_if_doc_is_linked(batch_no)
+			frappe.delete_doc("Batch", batch_no.name)
 
 
 @frappe.whitelist()
