@@ -160,7 +160,7 @@ def delete_batches(self, warehouse):
 			row.batch_no = None
 			batch_docs.append(batch_no)
 			check_if_doc_is_linked(batch_no)
-			frappe.delete_doc("Batch", batch_no.name)
+			frappe.db.delete("Batch", batch_no.name)
 
 
 @frappe.whitelist()
