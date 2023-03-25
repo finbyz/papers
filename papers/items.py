@@ -31,8 +31,17 @@ def validation(self,method):
             if(row.uom=='Kgs'):
                 row.conversion_factor = 1/cf
                 flag=1
-        if(flag == 0):
-            self.append("uoms",{
-                'uom':'Kgs',
-                'conversion_factor':1/cf,
-            })
+        # if(flag == 0):
+        #     self.append("uoms",{
+        #         'uom':'Kgs',
+        #         'conversion_factor':1/cf,
+        #     })
+
+def patches():
+    item_list = frappe.db.get_list("Item" , {'has_variants' : 0} , pluck='name')
+    for row in item_list:
+        doc = frappe.get_doc("Item" , row)
+        for d in doc.attributes:
+            if d.attribute == 'Ream Weight':
+                frappe.db.set_value("Item" , row , 'weight_per_unit' , d.attribute_value , update_modified = False)
+                frappe.db.set_value("Item" , row , 'weight_uom' , 'Kgs' , update_modified = False)
