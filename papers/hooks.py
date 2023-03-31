@@ -37,13 +37,13 @@ app_license = "MIT"
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
 doctype_js={
-    "Sales Invoice":"public/sales_invoice.js",
-     "Sales Order": "public/sales_order.js",
+	"Sales Invoice":"public/sales_invoice.js",
+	 "Sales Order": "public/sales_order.js",
 	 "Purchase Order": "public/purchase_order.js",
 	 "Delivery Note": "public/Delivery_Note.js",
 	 "Purchase Receipt": "public/Purchase_Receipt.js",
 	 "Purchase Invoice": "public/purchase_invoice.js",
-    }
+	}
 # Home Pages
 # ----------
 
@@ -244,17 +244,17 @@ doc_events = {
 			 "papers.api.rate_set_on_save"
 		],
 		"on_cancel": "papers.batch_valuation.pr_on_cancel",
-        "before_validate":"papers.api.set_qty_on_save"
+		"before_validate":"papers.api.calculate"
 	},
 	"Purchase Invoice": {
 		"validate": [
 			"papers.batch_valuation.pi_validate",
 			"papers.api.conversion_factor_on_save",
 			"papers.api.UOM_validation",
-             "papers.api.rate_set_on_save"
+			 "papers.api.rate_set_on_save"
 			],
 		"on_cancel": "papers.batch_valuation.pi_on_cancel",
-        "before_validate":"papers.api.set_qty_on_save"
+		"before_validate":"papers.api.calculate"
 	},
 	"Landed Cost Voucher": {
 		"validate": [
@@ -279,23 +279,24 @@ doc_events = {
 	},
 	"Item":{
 		"validate":"papers.items.validation",
-	},
+	},	
 	"Sales Invoice":{
 		"validate":[
 			"papers.api.conversion_factor_on_save",
 			"papers.api.UOM_validation",
-             "papers.api.rate_set_on_save"
+			"papers.api.rate_set_on_save"
 			],
-        "before_validate":"papers.api.set_qty_on_save"
+		"before_validate":"papers.api.calculate"
 	},
 	"Sales Order":{
 		"validate":[
 			"papers.api.conversion_factor_on_save",
 			"papers.api.UOM_validation",
 		],
-        "before_validate":[
+		"before_validate":[
 			"papers.api.set_qty_on_save",
-            "papers.api.rate_set_on_save"
+			"papers.api.rate_set_on_save",
+			"papers.api.calculate"
 		]
 	},
 	"Purchase Order":{
@@ -303,18 +304,19 @@ doc_events = {
 			"papers.api.conversion_factor_on_save",
 			"papers.api.UOM_validation",
 		],
-        "before_validate":[
+		"before_validate":[
 			"papers.api.set_qty_on_save",
 			"papers.api.rate_set_on_save",
+            "papers.api.calculate"
 		]
 	},
 	"Delivery Note":{
 		"validate":[
 			"papers.api.conversion_factor_on_save",
 			"papers.api.UOM_validation",
-             "papers.api.rate_set_on_save"
+			 "papers.api.rate_set_on_save"
 		],
-        "before_validate":"papers.api.set_qty_on_save"
+		"before_validate":"papers.api.calculate"
 	},
 }
 
