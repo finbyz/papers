@@ -43,6 +43,7 @@ doctype_js={
 	 "Delivery Note": "public/Delivery_Note.js",
 	 "Purchase Receipt": "public/Purchase_Receipt.js",
 	 "Purchase Invoice": "public/purchase_invoice.js",
+     "Material Request": "public/material_request.js",
 	}
 # Home Pages
 # ----------
