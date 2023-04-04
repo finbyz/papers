@@ -99,7 +99,9 @@ doctype_js={
 # override_doctype_class = {
 # 	"ToDo": "custom_app.overrides.CustomToDo"
 # }
-
+override_doctype_class = {
+	"Material Request": "papers.doc_events.material_request.CustomMaterialRequest"
+}
 # Document Events
 # ---------------
 # Hook on document methods and events
@@ -340,3 +342,4 @@ item.update_variants = update_variants
 
 from erpnext.stock.doctype.item.item import Item
 Item.update_variants = update_variants_enqueue
+
