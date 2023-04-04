@@ -242,22 +242,20 @@ doc_events = {
 	"Purchase Receipt": {
 		"validate": [
 			"papers.batch_valuation.pr_validate",
-			"papers.api.conversion_factor_on_save",
-			"papers.api.UOM_validation",
-			 "papers.api.rate_set_on_save"
+			
+
 		],
 		"on_cancel": "papers.batch_valuation.pr_on_cancel",
-		"before_validate":"papers.api.calculate"
+		
 	},
 	"Purchase Invoice": {
 		"validate": [
 			"papers.batch_valuation.pi_validate",
-			"papers.api.conversion_factor_on_save",
-			"papers.api.UOM_validation",
-			 "papers.api.rate_set_on_save"
+			
+
 			],
 		"on_cancel": "papers.batch_valuation.pi_on_cancel",
-		"before_validate":"papers.api.calculate"
+		
 	},
 	"Landed Cost Voucher": {
 		"validate": [
@@ -283,44 +281,10 @@ doc_events = {
 	"Item":{
 		"validate":"papers.items.validation",
 	},	
-	"Sales Invoice":{
-		"validate":[
-			"papers.api.conversion_factor_on_save",
-			"papers.api.UOM_validation",
-			"papers.api.rate_set_on_save"
-			],
-		"before_validate":"papers.api.calculate"
-	},
-	"Sales Order":{
-		"validate":[
-			"papers.api.conversion_factor_on_save",
-			"papers.api.UOM_validation",
-		],
-		"before_validate":[
-			"papers.api.set_qty_on_save",
-			"papers.api.rate_set_on_save",
-			"papers.api.calculate"
-		]
-	},
-	"Purchase Order":{
-		"validate":[
-			"papers.api.conversion_factor_on_save",
-			"papers.api.UOM_validation",
-		],
-		"before_validate":[
-			"papers.api.set_qty_on_save",
-			"papers.api.rate_set_on_save",
-            "papers.api.calculate"
-		]
-	},
-	"Delivery Note":{
-		"validate":[
-			"papers.api.conversion_factor_on_save",
-			"papers.api.UOM_validation",
-			 "papers.api.rate_set_on_save"
-		],
-		"before_validate":"papers.api.calculate"
-	},
+	
+	
+	
+	
 }
 
 #e invoice override

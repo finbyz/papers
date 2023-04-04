@@ -49,29 +49,10 @@ def insert_item_details(doc_details, item_details):
     return doc.as_dict()
 
 
-def conversion_factor_on_save(self,method):
-    pass
-#    for row in self.items:
-#      if row.reverse_conversion_factor:
-#         row.conversion_factor= 1/row.reverse_conversion_factor
-   
-def set_qty_on_save(self,method): 
-    pass
-#    for row in self.items:
-#         if row.uom == "Kgs":
-#             if row.conversion_factor :
-#                 qty = row.stock_qty/row.conversion_factor
-#                 row.qty =qty
 
-def UOM_validation(self,method):
-    pass
-    # for row in self.items:
-    #     if row.stock_uom == row.uom:
-    #         if not row.conversion_factor == 1:
-    #             frappe.throw("Stock UOM and UOM are same then conversion_factor should be 1 ")
-    #     if row.stock_uom != row.uom:
-    #         if row.conversion_factor == 1:
-    #             frappe.throw(" Stock UOM and UOM are diffrent then conversion_factor should  Not be 1 ")
+   
+
+
 
 def rate_set_on_save(self,method):
     pass
@@ -79,9 +60,3 @@ def rate_set_on_save(self,method):
     #     if row.uom == "Kgs":
     #         rate=row.stock_qty*row.stock_uom_rate/row.qty
     #         row.rate = rate
-
-def calculate(self,method):
-    for row in self.items:
-        if row.qty :
-            rate= row.total_weight*row.rate_per_kg/row.qty
-            self.rate = rate
