@@ -66,10 +66,13 @@ from frappe.utils import (
 )
 
 
+import datetime
 def before_naming(self , method):
-    date = str(getdate())
-    date = date.split("-")
-    self.posting_date = "{}{}{}".format(date[0][2:],date[1],date[2])
+    data = frappe.db.get_value(self.reference_doctype, self.reference_name, "posting_date")
+    try:
+        self.posting_date = datetime.datetime.strptime(data, "%Y-%m-%d").strftime("%y%m%d")
+    except:
+        self.posting_date = data.strftime("%y%m%d")
 
 
 
