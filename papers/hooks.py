@@ -282,7 +282,7 @@ doc_events = {
 		"validate":"papers.items.validation",
 	},	
     "Batch":{
-    		"before_naming":"paper.api.before_naming"
+    		"before_naming":"papers.api.before_naming"
 	}	
 }
 
