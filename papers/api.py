@@ -50,13 +50,26 @@ def insert_item_details(doc_details, item_details):
 
 
 
-   
+import frappe
+from frappe.utils import (
+	add_days,
+	add_months,
+	cint,
+	date_diff,
+	flt,
+	get_first_day,
+	get_last_day,
+	get_link_to_form,
+	getdate,
+	rounded,
+	today,
+)
+
+
+def before_naming(self , method):
+    date = str(getdate())
+    date = date.split("-")
+    self.posting_date = "{}{}{}".format(date[0][2:],date[1],date[2])
 
 
 
-def rate_set_on_save(self,method):
-    pass
-    # for row in self.items:
-    #     if row.uom == "Kgs":
-    #         rate=row.stock_qty*row.stock_uom_rate/row.qty
-    #         row.rate = rate

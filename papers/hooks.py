@@ -206,85 +206,84 @@ user_data_fields = [
 
 # batch valuation override
 
-from papers.batch_valuation_overrides import get_supplied_items_cost,set_incoming_rate_buying,set_incoming_rate_selling,get_rate_for_return,get_incoming_rate,process_sle,get_args_for_incoming_rate
+# from papers.batch_valuation_overrides import get_supplied_items_cost,set_incoming_rate_buying,set_incoming_rate_selling,get_rate_for_return,get_incoming_rate,process_sle,get_args_for_incoming_rate
 
-# Buying controllers
-from erpnext.controllers.buying_controller import BuyingController
-BuyingController.get_supplied_items_cost = get_supplied_items_cost
-BuyingController.set_incoming_rate = set_incoming_rate_buying
+# # Buying controllers
+# from erpnext.controllers.buying_controller import BuyingController
+# BuyingController.get_supplied_items_cost = get_supplied_items_cost
+# BuyingController.set_incoming_rate = set_incoming_rate_buying
 
-# Selling controllers
-from erpnext.controllers.selling_controller import SellingController
-SellingController.set_incoming_rate = set_incoming_rate_selling
+# # Selling controllers
+# from erpnext.controllers.selling_controller import SellingController
+# SellingController.set_incoming_rate = set_incoming_rate_selling
 
-# sales and purchase return
-from erpnext.controllers import sales_and_purchase_return
-sales_and_purchase_return.get_rate_for_return =  get_rate_for_return
+# # sales and purchase return
+# from erpnext.controllers import sales_and_purchase_return
+# sales_and_purchase_return.get_rate_for_return =  get_rate_for_return
 
-# Document Events
-# ---------------
-# Hook on document methods and events
-import erpnext
-erpnext.stock.utils.get_incoming_rate = get_incoming_rate
+# # Document Events
+# # ---------------
+# # Hook on document methods and events
+# import erpnext
+# erpnext.stock.utils.get_incoming_rate = get_incoming_rate
 
-# stock_ledger
-from erpnext.stock.stock_ledger import update_entries_after
-update_entries_after.process_sle =  process_sle
+# # stock_ledger
+# from erpnext.stock.stock_ledger import update_entries_after
+# update_entries_after.process_sle =  process_sle
 
-# stock entry
-from erpnext.stock.doctype.stock_entry.stock_entry import StockEntry
-StockEntry.get_args_for_incoming_rate = get_args_for_incoming_rate
+# # stock entry
+# from erpnext.stock.doctype.stock_entry.stock_entry import StockEntry
+# StockEntry.get_args_for_incoming_rate = get_args_for_incoming_rate
 
 doc_events = {
-	"Batch": {
-		'before_naming': "papers.batch_valuation.override_batch_autoname",
-	},
-	"Purchase Receipt": {
-		"validate": [
-			"papers.batch_valuation.pr_validate",
+	# "Batch": {
+	# 	'before_naming': "papers.batch_valuation.override_batch_autoname",
+	# },
+	# "Purchase Receipt": {
+	# 	"validate": [
+	# 		"papers.batch_valuation.pr_validate",
 			
 
-		],
-		"on_cancel": "papers.batch_valuation.pr_on_cancel",
+	# 	],
+	# 	"on_cancel": "papers.batch_valuation.pr_on_cancel",
 		
-	},
-	"Purchase Invoice": {
-		"validate": [
-			"papers.batch_valuation.pi_validate",
+	# },
+	# "Purchase Invoice": {
+	# 	"validate": [
+	# 		"papers.batch_valuation.pi_validate",
 			
 
-			],
-		"on_cancel": "papers.batch_valuation.pi_on_cancel",
+	# 		],
+	# 	"on_cancel": "papers.batch_valuation.pi_on_cancel",
 		
-	},
-	"Landed Cost Voucher": {
-		"validate": [
-			"papers.batch_valuation.lcv_validate",
-		],
-		"on_submit": "papers.batch_valuation.lcv_on_submit",
-		"on_cancel": [
-			"papers.batch_valuation.lcv_on_cancel",
-		],
-	},
-	"Stock Entry": {
-		"validate": [
-			"papers.batch_valuation.stock_entry_validate",
-		],
-# 		"before_save": "surgical.api.stock_entry_before_save",
-		"on_submit": [
-			"papers.batch_valuation.stock_entry_on_submit",
-		],
-		"on_cancel": [
-			"papers.batch_valuation.stock_entry_on_cancel",
-		],
-	},
+	# },
+	# "Landed Cost Voucher": {
+	# 	"validate": [
+	# 		"papers.batch_valuation.lcv_validate",
+	# 	],
+	# 	"on_submit": "papers.batch_valuation.lcv_on_submit",
+	# 	"on_cancel": [
+	# 		"papers.batch_valuation.lcv_on_cancel",
+	# 	],
+	# },
+# 	"Stock Entry": {
+# 		"validate": [
+# 			"papers.batch_valuation.stock_entry_validate",
+# 		],
+# # 		"before_save": "surgical.api.stock_entry_before_save",
+# 		"on_submit": [
+# 			"papers.batch_valuation.stock_entry_on_submit",
+# 		],
+# 		"on_cancel": [
+# 			"papers.batch_valuation.stock_entry_on_cancel",
+# 		],
+# 	},
 	"Item":{
 		"validate":"papers.items.validation",
 	},	
-	
-	
-	
-	
+    "Batch":{
+    		"before_naming":"paper.api.before_naming"
+	}	
 }
 
 #e invoice override
