@@ -9,12 +9,16 @@ app_color = "grey"
 app_email = "info@finbyz.com"
 app_license = "MIT"
 
+
 # Includes in <head>
 # ------------------
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/papers/css/papers.css"
 # app_include_js = "/assets/papers/js/papers.js"
+app_include_js = [
+    # "papers.bundle.js"
+]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/papers/css/papers.css"
@@ -44,6 +48,7 @@ doctype_js={
 	 "Purchase Receipt": "public/Purchase_Receipt.js",
 	 "Purchase Invoice": "public/purchase_invoice.js",
      "Material Request": "public/material_request.js",
+     
 	}
 # Home Pages
 # ----------
@@ -283,6 +288,9 @@ doc_events = {
 	},	
     "Batch":{
     		"before_naming":"papers.api.before_naming"
+	},
+    "Journal Entry": {
+        "on_submit": "papers.doc_events.journal_entry.je_validate"
 	}	
 }
 
