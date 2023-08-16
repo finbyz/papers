@@ -290,7 +290,7 @@ doc_events = {
     		"before_naming":"papers.api.before_naming"
 	},
     "Journal Entry": {
-        "on_submit": "papers.doc_events.journal_entry.je_validate"
+        "before_submit": "papers.doc_events.journal_entry.je_validate"
 	}	
 }
 
