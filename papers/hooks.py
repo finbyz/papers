@@ -17,7 +17,7 @@ app_license = "MIT"
 # app_include_css = "/assets/papers/css/papers.css"
 # app_include_js = "/assets/papers/js/papers.js"
 app_include_js = [
-    # "papers.bundle.js"
+    "papers.bundle.js"
 ]
 
 # include js, css files in header of web template
@@ -244,15 +244,15 @@ doc_events = {
 	# "Batch": {
 	# 	'before_naming': "papers.batch_valuation.override_batch_autoname",
 	# },
-	# "Purchase Receipt": {
-	# 	"validate": [
-	# 		"papers.batch_valuation.pr_validate",
+	"Purchase Receipt": {
+		"validate": [
+			"papers.batch_valuation.pr_validate",
 			
 
-	# 	],
-	# 	"on_cancel": "papers.batch_valuation.pr_on_cancel",
+		],
+		"on_cancel": "papers.batch_valuation.pr_on_cancel",
 		
-	# },
+	},
 	# "Purchase Invoice": {
 	# 	"validate": [
 	# 		"papers.batch_valuation.pi_validate",
