@@ -1,5 +1,15 @@
+frappe.ui.form.on('Sales Order',{
+    setup(frm) {
+        frm.set_query("transporter", {
+            filters: {
+                is_transporter: 1,
+            },
+        });
+    },
+})
+
 frappe.ui.form.on('Sales Order Item', {
- 
+   
     calculate:function(frm,cdt,cdn){
         let doc =locals[cdt][cdn];
         if(doc.qty){
