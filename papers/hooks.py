@@ -314,3 +314,6 @@ item.update_variants = update_variants
 from erpnext.stock.doctype.item.item import Item
 Item.update_variants = update_variants_enqueue
 
+from erpnext.selling.report.sales_person_wise_transaction_summary import sales_person_wise_transaction_summary
+from papers.papers.report.sales_person_wise_transaction_summary import execute
+sales_person_wise_transaction_summary.execute = execute
