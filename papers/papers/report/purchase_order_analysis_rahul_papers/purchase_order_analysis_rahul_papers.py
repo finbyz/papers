@@ -51,6 +51,7 @@ def get_data(filters):
 			po_item.schedule_date.as_("required_date"),
 			po_item.project,
 			po.name.as_("purchase_order"),
+			po.order_confirmation_no,
 			po.status,
 			po.supplier,
 			po_item.item_code,
@@ -173,6 +174,7 @@ def get_columns(filters):
 			"options": "Purchase Order",
 			"width": 160,
 		},
+		{"label": _("Order Confirmation No"), "fieldname": "order_confirmation_no", "fieldtype": "Data", "width": 150},
 		{"label": _("Status"), "fieldname": "status", "fieldtype": "Data", "width": 130},
 		{
 			"label": _("Supplier"),
